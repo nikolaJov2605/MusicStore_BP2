@@ -1,0 +1,113 @@
+﻿using Database.ModelDTOs;
+using Microsoft.Data.SqlClient;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Database.CRUD
+{
+    public class RadnikCRUD
+    {
+        #region CreateOperations
+        public void CreateRadnik(Radnik radnik)
+        {
+            MusicStoreDBContext dBContext = new MusicStoreDBContext();
+
+            try
+            {
+                dBContext.Radnici.Add(radnik);
+                dBContext.SaveChanges();
+            }
+            catch (SqlException e)
+            {
+                Console.Write(e.Message);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+        #endregion
+
+        #region ReadOperations
+        public Radnik GetRadnik(int radnikId)
+        {
+            MusicStoreDBContext dBContext = new MusicStoreDBContext();
+            Radnik retVal = new Radnik();
+            try
+            {
+                var query = dBContext.Radnici.Where(x => x.IdR == radnikId).FirstOrDefault();
+                if (query != null)
+                    return query;
+            }
+            catch
+            {
+                return null;
+            }
+            return null;
+        }
+
+        public Radnik GetRadnik(Radnik radnik)
+        {
+            MusicStoreDBContext dBContext = new MusicStoreDBContext();
+            Radnik retVal = new Radnik();
+            try
+            {
+                var query = dBContext.Radnici.Where(x => x == radnik).FirstOrDefault();
+                if (query != null)
+                    return query;
+            }
+            catch
+            {
+                return null;
+            }
+            return null;
+        }
+
+        #endregion
+
+        #region UpdateOperations
+        public void UpdateRadnik(Radnik radnik)
+        {
+            using (MusicStoreDBContext dBContext = new MusicStoreDBContext())
+            {
+                var query = dBContext.Radnici.Where(x => x.IdR == radnik.IdR).FirstOrDefault();
+
+                query.BrLk = radnik.BrLk;
+                query.Ime = radnik.Ime;
+                query.Prezime = radnik.Prezime;
+                query.Pozicija = radnik.Pozicija;
+                query.SifraP = radnik.SifraP;
+                query.SifraS = radnik.SifraS;
+
+                dBContext.SaveChanges();
+            }
+        }
+        #endregion
+
+        #region DeleteCommands
+        public bool DeleteRadnik(Radnik radnik)
+        {
+            MusicStoreDBContext dBContext = new MusicStoreDBContext();
+            try
+            {
+                var query = dBContext.Radnici.Where(x => x == radnik).FirstOrDefault();
+                if (query != null)
+                {
+                    dBContext.Radnici.Remove(radnik);
+                    dBContext.SaveChanges();
+                    return true;
+                }
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        #endregion
+
+    }
+}
