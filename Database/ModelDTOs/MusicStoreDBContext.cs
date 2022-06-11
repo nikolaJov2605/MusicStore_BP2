@@ -1,7 +1,7 @@
 ﻿using System;
+using System.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using System.Configuration;
 
 #nullable disable
 
@@ -46,11 +46,15 @@ namespace Database.ModelDTOs
                 entity.Property(e => e.SifraC).HasColumnName("SIFRA_C");
 
                 entity.Property(e => e.DatPocetka)
-                    .HasColumnType("datetime")
+                    .IsRequired()
+                    .HasMaxLength(12)
+                    .IsUnicode(false)
                     .HasColumnName("DAT_POCETKA");
 
                 entity.Property(e => e.DatZavrsetka)
-                    .HasColumnType("datetime")
+                    .IsRequired()
+                    .HasMaxLength(12)
+                    .IsUnicode(false)
                     .HasColumnName("DAT_ZAVRSETKA");
 
                 entity.Property(e => e.Iznos)
@@ -168,7 +172,7 @@ namespace Database.ModelDTOs
                     .HasConstraintName("I_K_FK");
 
                 entity.HasOne(d => d.IdRNavigation)
-                    .WithMany(p => p.Instruments)
+                    .WithMany(p => p.Instrumenti)
                     .HasForeignKey(d => d.IdR)
                     .HasConstraintName("I_R_FK");
             });
@@ -258,13 +262,13 @@ namespace Database.ModelDTOs
                 entity.Property(e => e.SifraS).HasColumnName("SIFRA_S");
 
                 entity.HasOne(d => d.SifraPNavigation)
-                    .WithMany(p => p.Radniks)
+                    .WithMany(p => p.Radnici)
                     .HasForeignKey(d => d.SifraP)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("R_P_FK");
 
                 entity.HasOne(d => d.SifraSNavigation)
-                    .WithMany(p => p.Radniks)
+                    .WithMany(p => p.Radnici)
                     .HasForeignKey(d => d.SifraS)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("R_S_FK");
@@ -282,7 +286,9 @@ namespace Database.ModelDTOs
                 entity.Property(e => e.IdK).HasColumnName("ID_K");
 
                 entity.Property(e => e.DatTest)
-                    .HasColumnType("datetime")
+                    .IsRequired()
+                    .HasMaxLength(12)
+                    .IsUnicode(false)
                     .HasColumnName("DAT_TEST");
 
                 entity.Property(e => e.IdR).HasColumnName("ID_R");
@@ -294,7 +300,7 @@ namespace Database.ModelDTOs
                     .HasConstraintName("TEST_K_FK");
 
                 entity.HasOne(d => d.IdRNavigation)
-                    .WithMany(p => p.Testiranjes)
+                    .WithMany(p => p.Testiranja)
                     .HasForeignKey(d => d.IdR)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("TEST_R_FK");

@@ -9,8 +9,8 @@ namespace Database.ModelDTOs
     {
         public int SifraC { get; set; }
         public decimal? Iznos { get; set; }
-        public DateTime DatPocetka { get; set; }
-        public DateTime DatZavrsetka { get; set; }
+        public string DatPocetka { get; set; }
+        public string DatZavrsetka { get; set; }
         public int? SifraI { get; set; }
 
         public virtual Instrument SifraINavigation { get; set; }

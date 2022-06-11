@@ -11,22 +11,24 @@ namespace Database.CRUD
     public class CenaCRUD
     {
         #region CreateOperations
-        public void CreateCena(Cena cena)
+        public void CreateCena(Cena cena, Instrument instrument)
         {
             MusicStoreDBContext dBContext = new MusicStoreDBContext();
 
             try
             {
+                var instrumentQuery = dBContext.Instrumenti.FirstOrDefault(x => x == instrument);
+                cena.SifraINavigation = instrumentQuery;
                 dBContext.Cene.Add(cena);
                 dBContext.SaveChanges();
             }
             catch (SqlException e)
             {
-                Console.Write(e.Message);
+                throw new Exception(e.Message);
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+                throw new Exception(e.Message);
             }
         }
         #endregion

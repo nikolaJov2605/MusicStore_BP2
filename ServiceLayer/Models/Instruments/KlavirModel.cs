@@ -15,6 +15,8 @@ namespace ServiceLayer.Models.Instruments
         private int brojTonova;
         private string vrstaKlavira;
 
+        public KlavirModel() { }
+
         public KlavirModel(string naziv, string proizvodjac, string opis, string tipInstrumenta, double cena, int sirina,
             int visina, int dubina, int masa, int brojTonova, string vrstaKlavira) : base(naziv, proizvodjac, opis, tipInstrumenta, cena)
         {

@@ -22,11 +22,11 @@ namespace Database.CRUD
             }
             catch (SqlException e)
             {
-                Console.Write(e.Message);
+                throw new Exception(e.Message);
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+                throw new Exception(e.Message);
             }
         }
         #endregion

@@ -5,8 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Frontend"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="600" Width="1000" Loaded="Window_Loaded">
     <Grid>
+        <DataGrid x:Name="dgTable" Margin="254,73,10,157" ColumnWidth="*" CanUserAddRows="False" IsReadOnly="True" SelectionMode="Single"/>
+        <ListBox x:Name="lbCategories" Margin="10,73,769,157"/>
+        <Label x:Name="label" Content="Pregled artikala" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="28"/>
+        <GroupBox x:Name="groupBox" Header="Admin console" Margin="10,454,769,10">
+            <WrapPanel>
+                <StackPanel>
+                    <Button x:Name="btnAddInstrument" Content="Dodaj instrument" Margin="5" Click="btnAddInstrument_Click"/>
+
+                </StackPanel>
+            </WrapPanel>
+        </GroupBox>
 
     </Grid>
 </Window>

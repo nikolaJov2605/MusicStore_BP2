@@ -9,12 +9,12 @@ namespace Database.ModelDTOs
     {
         public RadniStaz()
         {
-            Radniks = new HashSet<Radnik>();
+            Radnici = new HashSet<Radnik>();
         }
 
         public int SifraS { get; set; }
         public int? BrGod { get; set; }
 
-        public virtual ICollection<Radnik> Radniks { get; set; }
+        public virtual ICollection<Radnik> Radnici { get; set; }
     }
 }

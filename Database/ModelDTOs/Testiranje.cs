@@ -9,7 +9,7 @@ namespace Database.ModelDTOs
     {
         public int SifraI { get; set; }
         public int IdK { get; set; }
-        public DateTime DatTest { get; set; }
+        public string DatTest { get; set; }
         public int IdR { get; set; }
 
         public virtual Kupac IdKNavigation { get; set; }

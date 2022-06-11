@@ -9,8 +9,8 @@ namespace Database.ModelDTOs
     {
         public Radnik()
         {
-            Instruments = new HashSet<Instrument>();
-            Testiranjes = new HashSet<Testiranje>();
+            Instrumenti = new HashSet<Instrument>();
+            Testiranja = new HashSet<Testiranje>();
         }
 
         public int IdR { get; set; }
@@ -23,7 +23,7 @@ namespace Database.ModelDTOs
 
         public virtual Plata SifraPNavigation { get; set; }
         public virtual RadniStaz SifraSNavigation { get; set; }
-        public virtual ICollection<Instrument> Instruments { get; set; }
-        public virtual ICollection<Testiranje> Testiranjes { get; set; }
+        public virtual ICollection<Instrument> Instrumenti { get; set; }
+        public virtual ICollection<Testiranje> Testiranja { get; set; }
     }
 }

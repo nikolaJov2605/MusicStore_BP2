@@ -13,5 +13,6 @@ namespace ServiceLayer.Interfaces
         InstrumentModel GetInstrument(InstrumentModel instrument);
         void UpdateInstrument(InstrumentModel instrument);
         void DeleteInstrument(InstrumentModel instrument);
+        List<InstrumentModel> GetAllInstruments();
     }
 }

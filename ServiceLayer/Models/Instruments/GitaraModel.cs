@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Database.ModelDTOs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,9 @@ namespace ServiceLayer.Models.Instruments
         private string materijalVrata;
         private int brojPragova;
         private string vrstaGitare;
+
+        public GitaraModel() { }
+
         public GitaraModel(string naziv, string proizvodjac, string opis, string tipInstrumenta, double cena, string materijalGlave,
             string materijalTrupa, string materijalVrata, int brojPragova, string vrstaGitare) : base(naziv, proizvodjac, opis, tipInstrumenta, cena)
         {
@@ -28,5 +32,6 @@ namespace ServiceLayer.Models.Instruments
         public string MaterijalVrata { get => materijalVrata; set => materijalVrata = value; }
         public int BrojPragova { get => brojPragova; set => brojPragova = value; }
         public string VrstaGitare { get => vrstaGitare; set => vrstaGitare = value; }
+
     }
 }

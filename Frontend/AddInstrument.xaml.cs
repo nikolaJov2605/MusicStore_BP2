@@ -27,7 +27,11 @@ namespace Frontend
         private static List<string> PianoTypes = new List<string>() { "Električni", "Pianino", "Koncertni" };
         private static List<string> KeyboardTypes = new List<string>() { "Školska", "Aranžerska" };
         private static List<string> DrumTypes = new List<string>() { "Akustični", "Elektronski" };
-        public AddInstrument()
+
+        private static AddInstrument addInstrumentInstance;
+
+
+        private AddInstrument()
         {
             InitializeComponent();
             cbInstrumentType.ItemsSource = InstrumentTypes;
@@ -35,6 +39,16 @@ namespace Frontend
             cbPianoType.ItemsSource = PianoTypes;
             cbKeyboardType.ItemsSource = KeyboardTypes;
             cbDrumsType.ItemsSource = DrumTypes;
+        }
+
+        public static AddInstrument AddInstrumentInstance
+        {
+            get
+            {
+                if (addInstrumentInstance == null)
+                    addInstrumentInstance = new AddInstrument();
+                return addInstrumentInstance;
+            }
         }
 
         private bool Validate()
@@ -293,6 +307,9 @@ namespace Frontend
 
             IInstrument instrumentService = new InstrumentService();
             instrumentService.AddInstrument(model);
+
+            this.Close();
+
         }
     }
 }

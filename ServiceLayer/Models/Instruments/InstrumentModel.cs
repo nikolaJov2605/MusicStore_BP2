@@ -14,6 +14,28 @@ namespace ServiceLayer.Models.Instruments
         private string tipInstrumenta;
         private double cena;
 
+        /*private string matGlaveGitare;
+        private string matTrupaGitare;
+        private string matVrataGitare;
+        private int brPragovaGitare;
+        private string vrsGitare;
+        private int sirinaKlavira;
+        private int visinaKlavira;
+        private int dubinaKlavira;
+        private int masaKlavira;
+        private int brTonovaKlavira;
+        private string vrsKlavira;
+        private int duzinaKlavijature;
+        private int sirinaKlavijature;
+        private int dubinaKlavijature;
+        private int masaKlavijature;
+        private int brTonovaKlavijature;
+        private string vrsKlavijature;
+        private string vrsBubnja;*/
+
+
+
+        public InstrumentModel() { }
 
         public InstrumentModel(string naziv, string proizvodjac, string opis, string tipInstrumenta, double cena)
         {

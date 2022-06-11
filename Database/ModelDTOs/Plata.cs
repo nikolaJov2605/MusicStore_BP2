@@ -9,12 +9,12 @@ namespace Database.ModelDTOs
     {
         public Plata()
         {
-            Radniks = new HashSet<Radnik>();
+            Radnici = new HashSet<Radnik>();
         }
 
         public int SifraP { get; set; }
         public decimal? Iznos { get; set; }
 
-        public virtual ICollection<Radnik> Radniks { get; set; }
+        public virtual ICollection<Radnik> Radnici { get; set; }
     }
 }
