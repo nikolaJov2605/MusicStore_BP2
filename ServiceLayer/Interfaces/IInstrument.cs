@@ -1,4 +1,5 @@
-﻿using ServiceLayer.Models.Instruments;
+﻿using ServiceLayer.Models;
+using ServiceLayer.Models.Instruments;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,5 +15,7 @@ namespace ServiceLayer.Interfaces
         void UpdateInstrument(InstrumentModel instrument);
         void DeleteInstrument(InstrumentModel instrument);
         List<InstrumentModel> GetAllInstruments();
+        List<CenaModel> GetPricesForInstrument(int instrumentId);
+        List<InstrumentModel> FilterInstruments(string criteria);
     }
 }

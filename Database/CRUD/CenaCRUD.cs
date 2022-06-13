@@ -68,6 +68,24 @@ namespace Database.CRUD
             return null;
         }
 
+        public List<Cena> GetPricesForInstrument(int instrumentId)
+        {
+            MusicStoreDBContext dBContext = new MusicStoreDBContext();
+            try
+            {
+                var query = dBContext.Cene.Where(x => x.SifraI == instrumentId);
+                if (query != null)
+                {
+                    return query.ToList();
+                }
+            }
+            catch
+            {
+                return null;
+            }
+            return null;
+        }
+
         #endregion
 
         #region UpdateOperations

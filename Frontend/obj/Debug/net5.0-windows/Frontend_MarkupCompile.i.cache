@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 D:\Fakultet\IV_godina\II semestar\Baze podataka 2\Projekat\Nikola_Jovicevic_pr76-2018_BP2_Projekat\Frontend\App.xaml
-21738499327
+5-1252308396
 
-6-1146311511
+10-2010399949
 217469897501
-AddInstrument.xaml;MainWindow.xaml;
+Views\AddInstrument.xaml;Views\MainWindow.xaml;Views\Prices.xaml;Views\UpdateInstrument.xaml;Views\ViewInstrument.xaml;
 
-True
+False
 

@@ -22,23 +22,16 @@ namespace Frontend
     /// </summary>
     public partial class AddInstrument : Window
     {
-        private static List<string> InstrumentTypes = new List<string>() { "Gitara", "Klavir", "Klavijatura", "Bubanj" };
-        private static List<string> GuitarTypes = new List<string>() { "Klasična", "Akustična", "Električna", "Bas" };
-        private static List<string> PianoTypes = new List<string>() { "Električni", "Pianino", "Koncertni" };
-        private static List<string> KeyboardTypes = new List<string>() { "Školska", "Aranžerska" };
-        private static List<string> DrumTypes = new List<string>() { "Akustični", "Elektronski" };
-
         private static AddInstrument addInstrumentInstance;
-
 
         private AddInstrument()
         {
             InitializeComponent();
-            cbInstrumentType.ItemsSource = InstrumentTypes;
-            cbGuitarType.ItemsSource = GuitarTypes;
-            cbPianoType.ItemsSource = PianoTypes;
-            cbKeyboardType.ItemsSource = KeyboardTypes;
-            cbDrumsType.ItemsSource = DrumTypes;
+            cbInstrumentType.ItemsSource = Constants.InstrumentTypes;
+            cbGuitarType.ItemsSource = Constants.GuitarTypes;
+            cbPianoType.ItemsSource = Constants.PianoTypes;
+            cbKeyboardType.ItemsSource = Constants.KeyboardTypes;
+            cbDrumsType.ItemsSource = Constants.DrumTypes;
         }
 
         public static AddInstrument AddInstrumentInstance
@@ -308,8 +301,15 @@ namespace Frontend
             IInstrument instrumentService = new InstrumentService();
             instrumentService.AddInstrument(model);
 
+            MainWindow.MainWindowInstance.dgTable.ItemsSource = instrumentService.GetAllInstruments();
+
             this.Close();
 
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            addInstrumentInstance = null;
         }
     }
 }

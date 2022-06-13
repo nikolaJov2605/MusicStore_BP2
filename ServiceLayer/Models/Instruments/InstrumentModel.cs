@@ -8,6 +8,7 @@ namespace ServiceLayer.Models.Instruments
 {
     public class InstrumentModel
     {
+        private int id;
         private string naziv;
         private string proizvodjac;
         private string opis;
@@ -46,6 +47,7 @@ namespace ServiceLayer.Models.Instruments
             this.Cena = cena;
         }
 
+        public int Id { get => id; set => id = value; }
         public string Naziv { get => naziv; set => naziv = value; }
         public string Proizvodjac { get => proizvodjac; set => proizvodjac = value; }
         public string Opis { get => opis; set => opis = value; }

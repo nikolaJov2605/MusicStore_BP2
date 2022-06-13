@@ -7,15 +7,33 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="AddInstrument.xaml.cs">
+    <Compile Update="Views\AddInstrument.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Prices.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\UpdateInstrument.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\ViewInstrument.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="AddInstrument.xaml">
+    <Page Update="Views\AddInstrument.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MainWindow.xaml">
+    <Page Update="Views\MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Prices.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\UpdateInstrument.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ViewInstrument.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

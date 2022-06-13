@@ -1,13 +1,13 @@
-﻿<Window x:Class="Frontend.AddInstrument"
+﻿<Window x:Class="Frontend.Views.UpdateInstrument"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Frontend"
+        xmlns:local="clr-namespace:Frontend.Views"
         mc:Ignorable="d"
-        Title="AddInstrument" Height="594" Width="819">
+        Title="UpdateInstrument" Height="594" Width="819" Closed="Window_Closed">
     <Grid x:Name="grid" Margin="0,0,0,-6">
-        <Label x:Name="lblCaption" Content="Dodavanje instrumenta" FontSize="28" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblCaption" Content="Izmena instrumenta" FontSize="28" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lblName" Content="Naziv:" FontSize="15" HorizontalAlignment="Left" Margin="77,67,0,0" VerticalAlignment="Top" Foreground="Blue"/>
         <Label x:Name="lblCreator" Content="Proizvođač:" FontSize="15" HorizontalAlignment="Left" Margin="523,67,0,0" VerticalAlignment="Top" Foreground="Blue"/>
         <TextBox x:Name="tbName" HorizontalAlignment="Left" Margin="132,71,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="368" FontSize="15"/>
@@ -15,9 +15,10 @@
         <Label x:Name="lblDescription" Content="Opis:" HorizontalAlignment="Left" Margin="84,102,0,0" VerticalAlignment="Top" FontSize="15" Foreground="Blue"/>
         <TextBox x:Name="tbDescription" HorizontalAlignment="Left" Margin="132,102,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="652" MaxLines="50" Height="168" FontSize="13"/>
         <ComboBox x:Name="cbInstrumentType" HorizontalAlignment="Left" Margin="132,275,0,0" VerticalAlignment="Top" Width="211" FontSize="15" BorderThickness="1" SelectionChanged="cbInstrumentType_SelectionChanged"/>
-        <Label x:Name="lblInstrumentType" Content="Tip instrumenta:" HorizontalAlignment="Left" Margin="10,273,0,0" VerticalAlignment="Top" FontSize="15" Foreground="Blue"/>
         <Label x:Name="lblPrice" Content="Cena:" HorizontalAlignment="Left" Margin="400,273,0,0" VerticalAlignment="Top" FontSize="15" Foreground="Blue"/>
-        <TextBox x:Name="tbPrice" HorizontalAlignment="Left" Margin="452,277,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="15"/>
+        <TextBox x:Name="tbPrice" HorizontalAlignment="Left" Margin="452,277,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="15" IsReadOnly="True"/>
+        <Label x:Name="lblVal" Content="DIN" HorizontalAlignment="Left" Margin="572,273,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Left" FontSize="15" FontStyle="Italic" Foreground="Blue" Width="49"/>
+        <Label x:Name="lblInstrumentType" Content="Tip instrumenta:" HorizontalAlignment="Left" Margin="10,273,0,0" VerticalAlignment="Top" FontSize="15" Foreground="Blue"/>
         <GroupBox x:Name="gbGuitar" Header="Gitara" HorizontalAlignment="Center" Height="182" Margin="0,325,0,0" VerticalAlignment="Top" Width="799" FontSize="15" Foreground="Blue" Visibility="Hidden">
             <WrapPanel>
                 <StackPanel Height="154" Width="132">
@@ -100,11 +101,8 @@
 
             </WrapPanel>
         </GroupBox>
-
-
-        <Label x:Name="lblVal" Content="DIN" HorizontalAlignment="Left" Margin="572,273,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Left" FontSize="15" FontStyle="Italic" Foreground="Blue" Width="49"/>
-        <Button x:Name="btdAdd" Content="Dodaj" HorizontalAlignment="Center" Margin="0,512,0,0" VerticalAlignment="Top" Width="209" Height="36" FontSize="20" Click="btdAdd_Click"/>
-        <Label x:Name="lblAdvice" Content="* Izaberite tip instrumenta za dodatne opcije." HorizontalAlignment="Left" Margin="10,348,0,0" VerticalAlignment="Top" FontSize="13" Visibility="Visible"/>
+        <Button x:Name="btdUpdate" Content="Izmeni" HorizontalAlignment="Center" Margin="0,512,0,0" VerticalAlignment="Top" Width="209" Height="36" FontSize="20" Click="btdUpdate_Click"/>
+        <Button x:Name="btnPrice" Content="Menadžer cena" HorizontalAlignment="Left" Margin="626,275,0,0" VerticalAlignment="Top" Height="28" Width="101" Click="btnPrice_Click"/>
 
     </Grid>
 </Window>

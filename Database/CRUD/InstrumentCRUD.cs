@@ -40,7 +40,11 @@ namespace Database.CRUD
             {
                 var query = dBContext.Instrumenti.Where(x => x.SifraI == instrumentId).FirstOrDefault();
                 if (query != null)
+                {
+                    var queryCena = dBContext.Cene.Where(x => x.SifraI == query.SifraI);
+                    query.Cene = queryCena.ToList();
                     return query;
+                }
             }
             catch
             {
@@ -66,6 +70,91 @@ namespace Database.CRUD
             return null;
         }
 
+        public List<Instrument> GetAllInstruments()
+        {
+            List<Instrument> retList = new List<Instrument>();
+            using (MusicStoreDBContext dBContext = new MusicStoreDBContext())
+            {
+                retList = dBContext.Instrumenti.ToList();
+
+                foreach (var item in retList)
+                {
+                    var queryCena = dBContext.Cene.Where(x => x.SifraI == item.SifraI);
+                    item.Cene = queryCena.ToList();
+                }
+
+            }
+            return retList;
+        }
+
+        public List<Instrument> FilterInstruments(string criteria)
+        {
+            List<Instrument> instruments = new List<Instrument>();
+            using (MusicStoreDBContext dBContext = new MusicStoreDBContext())
+            {
+                switch(criteria)
+                {
+                    case "Svi instrumenti":
+                        instruments = dBContext.Instrumenti.ToList();
+                        break;
+                    case "Gitare":
+                        instruments = dBContext.Instrumenti.Where(x => x.TipInstrumenta == "Gitara").ToList();
+                        break;
+                    case "\tKlasične gitare":
+                        instruments = dBContext.Instrumenti.Where(x => x.TipInstrumenta == "Gitara" && x.VrsGitare == "Klasicna").ToList();
+                        break;
+                    case "\tAkustične gitare":
+                        instruments = dBContext.Instrumenti.Where(x => x.TipInstrumenta == "Gitara" && x.VrsGitare == "Akusticna").ToList();
+                        break;
+                    case "\tElektrične gitare":
+                        instruments = dBContext.Instrumenti.Where(x => x.TipInstrumenta == "Gitara" && x.VrsGitare == "Elektricna").ToList();
+                        break;
+                    case "\tBas gitare":
+                        instruments = dBContext.Instrumenti.Where(x => x.TipInstrumenta == "Gitara" && x.VrsGitare == "Bas").ToList();
+                        break;
+                    case "Klaviri":
+                        instruments = dBContext.Instrumenti.Where(x => x.TipInstrumenta == "Klavir").ToList();
+                        break;
+                    case "\tElektrični klaviri":
+                        instruments = dBContext.Instrumenti.Where(x => x.TipInstrumenta == "Klavir" && x.VrsKlavira == "Elektricni").ToList();
+                        break;
+                    case "\tPianino":
+                        instruments = dBContext.Instrumenti.Where(x => x.TipInstrumenta == "Klavir" && x.VrsKlavira == "Pianino").ToList();
+                        break;
+                    case "\tKoncertni klaviri":
+                        instruments = dBContext.Instrumenti.Where(x => x.TipInstrumenta == "Klavir" && x.VrsKlavira == "Koncertni").ToList();
+                        break;
+                    case "Klavijature":
+                        instruments = dBContext.Instrumenti.Where(x => x.TipInstrumenta == "Klavijatura").ToList();
+                        break;
+                    case "\tŠkolske klavijature":
+                        instruments = dBContext.Instrumenti.Where(x => x.TipInstrumenta == "Klavijatura" && x.VrsKlavijature == "Skolska").ToList();
+                        break;
+                    case "\tAranžerske klavijature":
+                        instruments = dBContext.Instrumenti.Where(x => x.TipInstrumenta == "Klavijatura" && x.VrsKlavijature == "Aranzerska").ToList();
+                        break;
+                    case "Bubnjevi":
+                        instruments = dBContext.Instrumenti.Where(x => x.TipInstrumenta == "Bubanj").ToList();
+                        break;
+                    case "\tAkustični bubnjevi":
+                        instruments = dBContext.Instrumenti.Where(x => x.TipInstrumenta == "Bubanj" && x.VrsBubnja == "Akusticni").ToList();
+                        break;
+                    case "\tElektronski bubnjevi":
+                        instruments = dBContext.Instrumenti.Where(x => x.TipInstrumenta == "Bubanj" && x.VrsBubnja == "Elektronski").ToList();
+                        break;
+                    default:
+                        instruments = dBContext.Instrumenti.ToList();
+                        break;
+                }
+                foreach (var item in instruments)
+                {
+                    var queryCena = dBContext.Cene.Where(x => x.SifraI == item.SifraI);
+                    item.Cene = queryCena.ToList();
+                }
+            }
+            return instruments;
+        }
+
         #endregion
 
         #region UpdateOperations
@@ -73,8 +162,9 @@ namespace Database.CRUD
         {
             using (MusicStoreDBContext dBContext = new MusicStoreDBContext())
             {
-                var query = dBContext.Instrumenti.Where(x => x.SifraI == instrument.SifraI).FirstOrDefault();
-
+                var query = dBContext.Instrumenti.Where(x => x.SifraI == instrument.SifraI).FirstOrDefault<Instrument>();
+                if (query == null)
+                    return;
                 query.Naziv = instrument.Naziv;
                 query.Proizvodjac = instrument.Proizvodjac;
                 query.Opis = instrument.Opis;
@@ -117,6 +207,31 @@ namespace Database.CRUD
                 if (query != null)
                 {
                     dBContext.Instrumenti.Remove(instrument);
+                    dBContext.SaveChanges();
+                    return true;
+                }
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public bool DeleteInstrument(int instrumentId)
+        {
+            MusicStoreDBContext dBContext = new MusicStoreDBContext();
+            try
+            {
+                var query = dBContext.Instrumenti.Where(x => x.SifraI == instrumentId).FirstOrDefault();
+                if (query != null)
+                {
+                    List<Cena> prices = dBContext.Cene.Where(x => x.SifraI == instrumentId).ToList();
+                    foreach(var price in prices)
+                    {
+                        dBContext.Cene.Remove(price);
+                    }
+                    dBContext.Instrumenti.Remove(query);
                     dBContext.SaveChanges();
                     return true;
                 }

@@ -1,0 +1,31 @@
+﻿<Window x:Class="Frontend.Views.Prices"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Frontend.Views"
+        mc:Ignorable="d"
+        Title="Prices" Height="450" Width="500" Closed="Window_Closed">
+    <Grid>
+        <DataGrid x:Name="dgPrices" Margin="10,62,10,172" ColumnWidth="*" CanUserAddRows="False" IsReadOnly="True" SelectionMode="Single"/>
+        <Label x:Name="lblCaption" Content="" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="28"/>
+        <GroupBox x:Name="gbNewPrice" Header="Dodaj cenu" Margin="10,267,10,27">
+            <WrapPanel Height="87">
+                <StackPanel>
+                    <Label x:Name="lblAmmount"  Content="Iznos:"/>
+                    <Label x:Name="lblDateStart"  Content="Datum početka važenja:"/>
+                    <Label x:Name="lblDateEnd"  Content="Datum završetka važenja:"/>
+                </StackPanel>
+                <StackPanel Width="133">
+                    <TextBox x:Name="tbAmmount"  Text="" Margin="2"/>
+                    <DatePicker x:Name="dpDateStart" Margin="2"/>
+                    <DatePicker x:Name="dpDateEnd"  Margin="2"/>
+                </StackPanel>
+                <StackPanel Width="159" Height="21">
+                    <Button x:Name="btnAddPrice" Content="Dodaj cenu" VerticalAlignment="Center" Width="102" HorizontalAlignment="Center" Click="btnAddPrice_Click"/>
+                </StackPanel>
+            </WrapPanel>
+        </GroupBox>
+
+    </Grid>
+</Window>
