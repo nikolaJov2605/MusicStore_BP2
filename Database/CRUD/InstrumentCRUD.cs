@@ -87,6 +87,52 @@ namespace Database.CRUD
             return retList;
         }
 
+        public List<Instrument> GetPurchasedInstruments()
+        {
+            List<Instrument> retList = new List<Instrument>();
+            using (MusicStoreDBContext dBContext = new MusicStoreDBContext())
+            {
+                retList = dBContext.Instrumenti.Where(x => x.Stat == false).ToList();
+
+                foreach (var item in retList)
+                {
+                    var queryCena = dBContext.Cene.Where(x => x.SifraI == item.SifraI);
+                    item.Cene = queryCena.ToList();
+
+                    var queryWorker = dBContext.Radnici.FirstOrDefault(x => x.IdR == item.IdR);
+                    item.IdRNavigation = queryWorker;
+
+                    var queryBuyer = dBContext.Kupci.FirstOrDefault(x => x.IdK == item.IdK);
+                    item.IdKNavigation = queryBuyer;
+                }
+
+            }
+            return retList;
+        }
+
+        public Instrument GetPurchasedInstrument(int instrumentId)
+        {
+            Instrument retVal = new Instrument();
+            using (MusicStoreDBContext dBContext = new MusicStoreDBContext())
+            {
+                retVal = dBContext.Instrumenti.FirstOrDefault(x => x.Stat == false && x.SifraI == instrumentId);
+
+                if (retVal == null)
+                    return null;
+
+                var queryCena = dBContext.Cene.Where(x => x.SifraI == retVal.SifraI);
+                retVal.Cene = queryCena.ToList();
+
+                var queryWorker = dBContext.Radnici.FirstOrDefault(x => x.IdR == retVal.IdR);
+                retVal.IdRNavigation = queryWorker;
+
+                var queryBuyer = dBContext.Kupci.FirstOrDefault(x => x.IdK == retVal.IdK);
+                retVal.IdKNavigation = queryBuyer;
+
+            }
+            return retVal;
+        }
+
         public List<Instrument> FilterInstruments(string criteria)
         {
             List<Instrument> instruments = new List<Instrument>();
@@ -191,6 +237,8 @@ namespace Database.CRUD
                 query.BrTonovaKlavijature = instrument.BrTonovaKlavijature;
                 query.VrsKlavijature = instrument.VrsKlavijature;
                 query.VrsBubnja = instrument.VrsBubnja;
+                query.IdKNavigation = instrument.IdKNavigation;
+                query.IdRNavigation = instrument.IdRNavigation;
 
                 dBContext.SaveChanges();
             }

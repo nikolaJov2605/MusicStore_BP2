@@ -66,6 +66,26 @@ namespace Database.CRUD
             return null;
         }
 
+        public Plata GetPlataForRadnik(int radnikId)
+        {
+            MusicStoreDBContext dBContext = new MusicStoreDBContext();
+            Plata retVal = new Plata();
+            try
+            {
+                var query = dBContext.Radnici.Where(x => x.IdR == radnikId).FirstOrDefault();
+                if (query != null)
+                {
+                    var salary = dBContext.Plate.FirstOrDefault(x => x.SifraP == query.SifraP);
+                    if (salary != null)
+                        return query.SifraPNavigation;
+                }
+            }
+            catch
+            {
+                return null;
+            }
+            return null;
+        }
         #endregion
 
         #region UpdateOperations

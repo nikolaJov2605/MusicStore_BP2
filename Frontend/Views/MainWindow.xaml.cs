@@ -112,5 +112,29 @@ namespace Frontend
             ViewInstrument viewInstrumentWindow = new ViewInstrument(model);
             viewInstrumentWindow.Show();
         }
+
+        private void btnWorkers_Click(object sender, RoutedEventArgs e)
+        {
+            WorkerView workerViewWindow = WorkerView.WorkerViewInstance;
+            workerViewWindow.Show();
+        }
+
+        private void btnBuyers_Click(object sender, RoutedEventArgs e)
+        {
+            BuyerView buyerViewWindow = BuyerView.BuyerViewInstance;
+            buyerViewWindow.Show();
+        }
+
+        private void btnPurchases_Click(object sender, RoutedEventArgs e)
+        {
+            PurchaseView purchaseView = PurchaseView.PurchaseViewInstance;
+            purchaseView.Show();
+        }
+
+        private void btnNewPurchase_Click(object sender, RoutedEventArgs e)
+        {
+            AddPurchase addPurchaseWindow = AddPurchase.AddPurchaseInstance;
+            addPurchaseWindow.Show();
+        }
     }
 }

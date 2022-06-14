@@ -11,7 +11,7 @@ namespace Database.CRUD
     public class RadniStazCRUD
     {
         #region CreateOperations
-        public void CreatePlata(RadniStaz radniStaz)
+        public void CreateRadniStaz(RadniStaz radniStaz)
         {
             MusicStoreDBContext dBContext = new MusicStoreDBContext();
 
@@ -65,7 +65,26 @@ namespace Database.CRUD
             }
             return null;
         }
-
+        public RadniStaz GetRadniStazForRadnik(int radnikId)
+        {
+            MusicStoreDBContext dBContext = new MusicStoreDBContext();
+            RadniStaz retVal = new RadniStaz();
+            try
+            {
+                var query = dBContext.Radnici.Where(x => x.IdR == radnikId).FirstOrDefault();
+                if (query != null)
+                {
+                    var workingYears = dBContext.RadniStaz.FirstOrDefault(x => x.SifraS == query.SifraS);
+                    if(workingYears != null)
+                        return query.SifraSNavigation;
+                }
+            }
+            catch
+            {
+                return null;
+            }
+            return null;
+        }
         #endregion
 
         #region UpdateOperations

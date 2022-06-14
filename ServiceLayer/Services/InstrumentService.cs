@@ -180,7 +180,7 @@ namespace ServiceLayer.Services
                 klavirModel.Id = dbInstrument.SifraI;
                 retInstrument = klavirModel;
             }
-            else if (dbInstrument.TipInstrumenta == "Klavir")
+            else if (dbInstrument.TipInstrumenta == "Klavijatura")
             {
                 InstrumentModel klavijaturaModel = new KlavijaturaModel(dbInstrument.Naziv, dbInstrument.Proizvodjac, dbInstrument.Opis, dbInstrument.TipInstrumenta, cena,
                     (int)dbInstrument.SirinaKlavijature, (int)dbInstrument.DuzinaKlavijature, (int)dbInstrument.DubinaKlavijature, (int)dbInstrument.MasaKlavijature, (int)dbInstrument.BrTonovaKlavijature, dbInstrument.VrsKlavijature);

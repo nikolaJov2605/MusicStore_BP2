@@ -7,21 +7,57 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Views\AddBuyer.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\AddPurchase.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\AddWorker.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\AddInstrument.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\BuyerView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Prices.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\PurchaseView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\UpdateBuyer.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\UpdateInstrument.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\UpdateWorker.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\ViewInstrument.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\WorkerView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Views\AddBuyer.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\AddPurchase.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\AddWorker.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\AddInstrument.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\BuyerView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\MainWindow.xaml">
@@ -30,10 +66,22 @@
     <Page Update="Views\Prices.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\PurchaseView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\UpdateBuyer.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\UpdateInstrument.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\UpdateWorker.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\ViewInstrument.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\WorkerView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

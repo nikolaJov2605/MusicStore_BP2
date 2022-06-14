@@ -86,6 +86,24 @@ namespace Database.CRUD
             return null;
         }
 
+        public Cena GetPriceForInstrument(int instrumentId)
+        {
+            MusicStoreDBContext dBContext = new MusicStoreDBContext();
+            try
+            {
+                var query = dBContext.Cene.FirstOrDefault(x => x.SifraI == instrumentId);
+                if (query != null && DateTime.Parse(query.DatPocetka) < DateTime.Now && DateTime.Parse(query.DatZavrsetka) > DateTime.Now)
+                {
+                    return query;
+                }
+            }
+            catch(Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            return null;
+        }
+
         #endregion
 
         #region UpdateOperations

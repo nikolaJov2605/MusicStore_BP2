@@ -10,7 +10,7 @@
         <DataGrid x:Name="dgTable" Margin="254,73,10,157" ColumnWidth="*" CanUserAddRows="False" IsReadOnly="True" SelectionMode="Single" MouseDoubleClick="dgTable_MouseDoubleClick"/>
         <ListBox x:Name="lbCategories" Margin="10,73,769,157" SelectionChanged="lbCategories_SelectionChanged"/>
         <Label x:Name="label" Content="Pregled artikala" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="28"/>
-        <GroupBox x:Name="groupBox" Header="Admin console" Margin="10,454,769,10">
+        <GroupBox x:Name="groupBox" Header="Admin console" Margin="862,464,10,10">
             <WrapPanel>
                 <StackPanel Height="117">
                     <Button x:Name="btnAddInstrument" Content="Dodaj instrument" Margin="5" Width="100" Click="btnAddInstrument_Click"/>
@@ -20,11 +20,19 @@
                 </StackPanel>
             </WrapPanel>
         </GroupBox>
-        <GroupBox x:Name="gbAdditional" Header="Dodatne opcije" Margin="254,454,399,10">
+        <GroupBox x:Name="gbAdditional" Header="Dodatne opcije" Margin="10,464,769,10">
             <WrapPanel>
                 <StackPanel>
-                    <Button x:Name="btnWorkers" Content="Menadžer radnika" Width="150" Height="30" Margin="3"/>
-                    <Button x:Name="btnBuyers" Content="Menadžer kupaca" Width="150" Height="30" Margin="3"/>
+                    <Button x:Name="btnWorkers" Content="Menadžer radnika" Width="150" Height="30" Margin="3" Click="btnWorkers_Click"/>
+                    <Button x:Name="btnBuyers" Content="Menadžer kupaca" Width="150" Height="30" Margin="3" Click="btnBuyers_Click"/>
+                </StackPanel>
+            </WrapPanel>
+        </GroupBox>
+        <GroupBox x:Name="groupBox1" Header="Kupovine" Margin="254,464,500,10">
+            <WrapPanel>
+                <StackPanel>
+                    <Button x:Name="btnPurchases" Content="Obavljene kupovine" Width="150" Height="30" Margin="3" Click="btnPurchases_Click"/>
+                    <Button x:Name="btnNewPurchase" Content="Kreiraj novu kupovinu" Width="150" Height="30" Margin="3" Click="btnNewPurchase_Click"/>
                 </StackPanel>
             </WrapPanel>
         </GroupBox>

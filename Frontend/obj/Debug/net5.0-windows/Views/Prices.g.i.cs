@@ -133,7 +133,7 @@ namespace Frontend.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Frontend;component/views/prices.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Frontend;V1.0.0.0;component/views/prices.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\Prices.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

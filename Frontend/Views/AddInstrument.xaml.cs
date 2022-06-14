@@ -290,7 +290,7 @@ namespace Frontend
                         Int32.Parse(tbKeyboardMass.Text), Int32.Parse(tbKeyboardToneCount.Text), cbKeyboardType.SelectedItem.ToString());
                     break;
                 case 3:
-                    model = new BubanjModel(tbName.Text, tbCreator.Text, tbDescription.Text, "Klavijatura",
+                    model = new BubanjModel(tbName.Text, tbCreator.Text, tbDescription.Text, "Bubanj",
                         Double.Parse(tbPrice.Text), cbDrumsType.SelectedItem.ToString());
                     break;
                 default:

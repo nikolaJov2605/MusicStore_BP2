@@ -66,6 +66,33 @@ namespace Database.CRUD
             return null;
         }
 
+        public Kupac GetKupac(string jmbg)
+        {
+            MusicStoreDBContext dBContext = new MusicStoreDBContext();
+            Kupac retVal = new Kupac();
+            try
+            {
+                var query = dBContext.Kupci.Where(x => x.Jmbg == jmbg).FirstOrDefault();
+                if (query != null)
+                    return query;
+            }
+            catch
+            {
+                return null;
+            }
+            return null;
+        }
+
+        public List<Kupac> GetAllKupci()
+        {
+            List<Kupac> retList = new List<Kupac>();
+            using (MusicStoreDBContext dBContext = new MusicStoreDBContext())
+            {
+                retList = dBContext.Kupci.ToList();
+            }
+            return retList;
+        }
+
         #endregion
 
         #region UpdateOperations
@@ -94,6 +121,26 @@ namespace Database.CRUD
                 if (query != null)
                 {
                     dBContext.Kupci.Remove(kupac);
+                    dBContext.SaveChanges();
+                    return true;
+                }
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public bool DeleteKupac(int kupacId)
+        {
+            MusicStoreDBContext dBContext = new MusicStoreDBContext();
+            try
+            {
+                var query = dBContext.Kupci.Where(x => x.IdK == kupacId).FirstOrDefault();
+                if (query != null)
+                {
+                    dBContext.Kupci.Remove(query);
                     dBContext.SaveChanges();
                     return true;
                 }

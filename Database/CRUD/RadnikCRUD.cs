@@ -11,12 +11,16 @@ namespace Database.CRUD
     public class RadnikCRUD
     {
         #region CreateOperations
-        public void CreateRadnik(Radnik radnik)
+        public void CreateRadnik(Radnik radnik, Plata plata, RadniStaz radniStaz)
         {
             MusicStoreDBContext dBContext = new MusicStoreDBContext();
 
             try
             {
+                var plataQuery = dBContext.Plate.FirstOrDefault(x => x == plata);
+                radnik.SifraPNavigation = plataQuery;
+                var stazQuery = dBContext.RadniStaz.FirstOrDefault(x => x == radniStaz);
+                radnik.SifraSNavigation = stazQuery;
                 dBContext.Radnici.Add(radnik);
                 dBContext.SaveChanges();
             }
@@ -66,6 +70,46 @@ namespace Database.CRUD
             return null;
         }
 
+       
+
+        public List<Radnik> GetAllRadnici()
+        {
+            List<Radnik> retList = new List<Radnik>();
+            using (MusicStoreDBContext dBContext = new MusicStoreDBContext())
+            {
+                retList = dBContext.Radnici.ToList();
+
+                /*foreach (var radnik in retList)
+                {
+                    var plata = dBContext.Plate.FirstOrDefault(x => x.Radnici.Contains(radnik));
+                    var staz = dBContext.RadniStaz.FirstOrDefault(x => x.Radnici.Contains(radnik));
+
+                    radnik.
+                }*/
+            }
+            return retList;
+        }
+
+        public List<Radnik> GetAllSellers()
+        {
+            List<Radnik> retList = new List<Radnik>();
+            using (MusicStoreDBContext dBContext = new MusicStoreDBContext())
+            {
+                retList = dBContext.Radnici.Where(x => x.Pozicija == "Prodavac").ToList();
+            }
+            return retList;
+        }
+
+        public List<Radnik> GetAllTechs()
+        {
+            List<Radnik> retList = new List<Radnik>();
+            using (MusicStoreDBContext dBContext = new MusicStoreDBContext())
+            {
+                retList = dBContext.Radnici.Where(x => x.Pozicija == "Tehničar").ToList();
+            }
+            return retList;
+        }
+
         #endregion
 
         #region UpdateOperations
@@ -97,6 +141,32 @@ namespace Database.CRUD
                 if (query != null)
                 {
                     dBContext.Radnici.Remove(radnik);
+                    dBContext.SaveChanges();
+                    return true;
+                }
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public bool DeleteRadnik(int radnikId)
+        {
+            MusicStoreDBContext dBContext = new MusicStoreDBContext();
+            try
+            {
+                var query = dBContext.Radnici.Where(x => x.IdR == radnikId).FirstOrDefault();
+                if (query != null)
+                {
+                    dBContext.Radnici.Remove(query);
+
+                    var salary = dBContext.Plate.FirstOrDefault(x => x.SifraP == query.SifraP);
+                    dBContext.Plate.Remove(salary);
+                    var years = dBContext.RadniStaz.FirstOrDefault(x => x.SifraS == query.SifraS);
+                    dBContext.RadniStaz.Remove(years);
+
                     dBContext.SaveChanges();
                     return true;
                 }

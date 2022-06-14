@@ -13,5 +13,8 @@ namespace Frontend
         public static List<string> PianoTypes = new List<string>() { "Električni", "Pianino", "Koncertni" };
         public static List<string> KeyboardTypes = new List<string>() { "Školska", "Aranžerska" };
         public static List<string> DrumTypes = new List<string>() { "Akustični", "Elektronski" };
+
+
+        public static List<string> WorkerPositions = new List<string>() { "Prodavac", "Tehničar", "Full" };
     }
 }
