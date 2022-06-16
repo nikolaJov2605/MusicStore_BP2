@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 D:\Fakultet\IV_godina\II semestar\Baze podataka 2\Projekat\Nikola_Jovicevic_pr76-2018_BP2_Projekat\Frontend\App.xaml
-13-1885731997
+15-753823263
 
-18-2008510248
+201355392910
 217469897501
-Views\AddBuyer.xaml;Views\AddInstrument.xaml;Views\AddPurchase.xaml;Views\AddWorker.xaml;Views\BuyerView.xaml;Views\MainWindow.xaml;Views\Prices.xaml;Views\PurchaseView.xaml;Views\UpdateBuyer.xaml;Views\UpdateInstrument.xaml;Views\UpdateWorker.xaml;Views\ViewInstrument.xaml;Views\WorkerView.xaml;
+Views\AddBuyer.xaml;Views\AddInstrument.xaml;Views\AddPurchase.xaml;Views\AddTest.xaml;Views\AddWorker.xaml;Views\BuyerView.xaml;Views\MainWindow.xaml;Views\Prices.xaml;Views\PurchaseView.xaml;Views\TestView.xaml;Views\UpdateBuyer.xaml;Views\UpdateInstrument.xaml;Views\UpdateWorker.xaml;Views\ViewInstrument.xaml;Views\WorkerView.xaml;
 
-True
+False
 

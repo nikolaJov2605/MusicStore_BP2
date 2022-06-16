@@ -63,11 +63,13 @@ D:\Fakultet\IV_godina\II semestar\Baze podataka 2\Projekat\Nikola_Jovicevic_pr76
 D:\Fakultet\IV_godina\II semestar\Baze podataka 2\Projekat\Nikola_Jovicevic_pr76-2018_BP2_Projekat\Frontend\obj\Debug\net5.0-windows\Views\AddBuyer.g.cs
 D:\Fakultet\IV_godina\II semestar\Baze podataka 2\Projekat\Nikola_Jovicevic_pr76-2018_BP2_Projekat\Frontend\obj\Debug\net5.0-windows\Views\AddInstrument.g.cs
 D:\Fakultet\IV_godina\II semestar\Baze podataka 2\Projekat\Nikola_Jovicevic_pr76-2018_BP2_Projekat\Frontend\obj\Debug\net5.0-windows\Views\AddPurchase.g.cs
+D:\Fakultet\IV_godina\II semestar\Baze podataka 2\Projekat\Nikola_Jovicevic_pr76-2018_BP2_Projekat\Frontend\obj\Debug\net5.0-windows\Views\AddTest.g.cs
 D:\Fakultet\IV_godina\II semestar\Baze podataka 2\Projekat\Nikola_Jovicevic_pr76-2018_BP2_Projekat\Frontend\obj\Debug\net5.0-windows\Views\AddWorker.g.cs
 D:\Fakultet\IV_godina\II semestar\Baze podataka 2\Projekat\Nikola_Jovicevic_pr76-2018_BP2_Projekat\Frontend\obj\Debug\net5.0-windows\Views\BuyerView.g.cs
 D:\Fakultet\IV_godina\II semestar\Baze podataka 2\Projekat\Nikola_Jovicevic_pr76-2018_BP2_Projekat\Frontend\obj\Debug\net5.0-windows\Views\MainWindow.g.cs
 D:\Fakultet\IV_godina\II semestar\Baze podataka 2\Projekat\Nikola_Jovicevic_pr76-2018_BP2_Projekat\Frontend\obj\Debug\net5.0-windows\Views\Prices.g.cs
 D:\Fakultet\IV_godina\II semestar\Baze podataka 2\Projekat\Nikola_Jovicevic_pr76-2018_BP2_Projekat\Frontend\obj\Debug\net5.0-windows\Views\PurchaseView.g.cs
+D:\Fakultet\IV_godina\II semestar\Baze podataka 2\Projekat\Nikola_Jovicevic_pr76-2018_BP2_Projekat\Frontend\obj\Debug\net5.0-windows\Views\TestView.g.cs
 D:\Fakultet\IV_godina\II semestar\Baze podataka 2\Projekat\Nikola_Jovicevic_pr76-2018_BP2_Projekat\Frontend\obj\Debug\net5.0-windows\Views\UpdateBuyer.g.cs
 D:\Fakultet\IV_godina\II semestar\Baze podataka 2\Projekat\Nikola_Jovicevic_pr76-2018_BP2_Projekat\Frontend\obj\Debug\net5.0-windows\Views\UpdateInstrument.g.cs
 D:\Fakultet\IV_godina\II semestar\Baze podataka 2\Projekat\Nikola_Jovicevic_pr76-2018_BP2_Projekat\Frontend\obj\Debug\net5.0-windows\Views\UpdateWorker.g.cs
@@ -79,11 +81,13 @@ D:\Fakultet\IV_godina\II semestar\Baze podataka 2\Projekat\Nikola_Jovicevic_pr76
 D:\Fakultet\IV_godina\II semestar\Baze podataka 2\Projekat\Nikola_Jovicevic_pr76-2018_BP2_Projekat\Frontend\obj\Debug\net5.0-windows\Views\AddBuyer.baml
 D:\Fakultet\IV_godina\II semestar\Baze podataka 2\Projekat\Nikola_Jovicevic_pr76-2018_BP2_Projekat\Frontend\obj\Debug\net5.0-windows\Views\AddInstrument.baml
 D:\Fakultet\IV_godina\II semestar\Baze podataka 2\Projekat\Nikola_Jovicevic_pr76-2018_BP2_Projekat\Frontend\obj\Debug\net5.0-windows\Views\AddPurchase.baml
+D:\Fakultet\IV_godina\II semestar\Baze podataka 2\Projekat\Nikola_Jovicevic_pr76-2018_BP2_Projekat\Frontend\obj\Debug\net5.0-windows\Views\AddTest.baml
 D:\Fakultet\IV_godina\II semestar\Baze podataka 2\Projekat\Nikola_Jovicevic_pr76-2018_BP2_Projekat\Frontend\obj\Debug\net5.0-windows\Views\AddWorker.baml
 D:\Fakultet\IV_godina\II semestar\Baze podataka 2\Projekat\Nikola_Jovicevic_pr76-2018_BP2_Projekat\Frontend\obj\Debug\net5.0-windows\Views\BuyerView.baml
 D:\Fakultet\IV_godina\II semestar\Baze podataka 2\Projekat\Nikola_Jovicevic_pr76-2018_BP2_Projekat\Frontend\obj\Debug\net5.0-windows\Views\MainWindow.baml
 D:\Fakultet\IV_godina\II semestar\Baze podataka 2\Projekat\Nikola_Jovicevic_pr76-2018_BP2_Projekat\Frontend\obj\Debug\net5.0-windows\Views\Prices.baml
 D:\Fakultet\IV_godina\II semestar\Baze podataka 2\Projekat\Nikola_Jovicevic_pr76-2018_BP2_Projekat\Frontend\obj\Debug\net5.0-windows\Views\PurchaseView.baml
+D:\Fakultet\IV_godina\II semestar\Baze podataka 2\Projekat\Nikola_Jovicevic_pr76-2018_BP2_Projekat\Frontend\obj\Debug\net5.0-windows\Views\TestView.baml
 D:\Fakultet\IV_godina\II semestar\Baze podataka 2\Projekat\Nikola_Jovicevic_pr76-2018_BP2_Projekat\Frontend\obj\Debug\net5.0-windows\Views\UpdateBuyer.baml
 D:\Fakultet\IV_godina\II semestar\Baze podataka 2\Projekat\Nikola_Jovicevic_pr76-2018_BP2_Projekat\Frontend\obj\Debug\net5.0-windows\Views\UpdateInstrument.baml
 D:\Fakultet\IV_godina\II semestar\Baze podataka 2\Projekat\Nikola_Jovicevic_pr76-2018_BP2_Projekat\Frontend\obj\Debug\net5.0-windows\Views\UpdateWorker.baml
@@ -94,6 +98,7 @@ D:\Fakultet\IV_godina\II semestar\Baze podataka 2\Projekat\Nikola_Jovicevic_pr76
 D:\Fakultet\IV_godina\II semestar\Baze podataka 2\Projekat\Nikola_Jovicevic_pr76-2018_BP2_Projekat\Frontend\obj\Debug\net5.0-windows\Frontend.AssemblyInfoInputs.cache
 D:\Fakultet\IV_godina\II semestar\Baze podataka 2\Projekat\Nikola_Jovicevic_pr76-2018_BP2_Projekat\Frontend\obj\Debug\net5.0-windows\Frontend.AssemblyInfo.cs
 D:\Fakultet\IV_godina\II semestar\Baze podataka 2\Projekat\Nikola_Jovicevic_pr76-2018_BP2_Projekat\Frontend\obj\Debug\net5.0-windows\Frontend.csproj.CoreCompileInputs.cache
+D:\Fakultet\IV_godina\II semestar\Baze podataka 2\Projekat\Nikola_Jovicevic_pr76-2018_BP2_Projekat\Frontend\obj\Debug\net5.0-windows\Frontend.csproj.CopyComplete
 D:\Fakultet\IV_godina\II semestar\Baze podataka 2\Projekat\Nikola_Jovicevic_pr76-2018_BP2_Projekat\Frontend\obj\Debug\net5.0-windows\Frontend.dll
 D:\Fakultet\IV_godina\II semestar\Baze podataka 2\Projekat\Nikola_Jovicevic_pr76-2018_BP2_Projekat\Frontend\obj\Debug\net5.0-windows\ref\Frontend.dll
 D:\Fakultet\IV_godina\II semestar\Baze podataka 2\Projekat\Nikola_Jovicevic_pr76-2018_BP2_Projekat\Frontend\obj\Debug\net5.0-windows\Frontend.pdb

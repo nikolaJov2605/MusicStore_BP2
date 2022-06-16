@@ -174,10 +174,10 @@ namespace Database.CRUD
                         instruments = dBContext.Instrumenti.Where(x => x.TipInstrumenta == "Klavijatura").ToList();
                         break;
                     case "\tŠkolske klavijature":
-                        instruments = dBContext.Instrumenti.Where(x => x.TipInstrumenta == "Klavijatura" && x.VrsKlavijature == "Skolska").ToList();
+                        instruments = dBContext.Instrumenti.Where(x => x.TipInstrumenta == "Klavijatura" && x.VrsKlavijature == "Školska").ToList();
                         break;
                     case "\tAranžerske klavijature":
-                        instruments = dBContext.Instrumenti.Where(x => x.TipInstrumenta == "Klavijatura" && x.VrsKlavijature == "Aranzerska").ToList();
+                        instruments = dBContext.Instrumenti.Where(x => x.TipInstrumenta == "Klavijatura" && x.VrsKlavijature == "Aranžerska").ToList();
                         break;
                     case "Bubnjevi":
                         instruments = dBContext.Instrumenti.Where(x => x.TipInstrumenta == "Bubanj").ToList();
@@ -269,11 +269,18 @@ namespace Database.CRUD
         public bool DeleteInstrument(int instrumentId)
         {
             MusicStoreDBContext dBContext = new MusicStoreDBContext();
+            List<Testiranje> testList;
             try
             {
                 var query = dBContext.Instrumenti.Where(x => x.SifraI == instrumentId).FirstOrDefault();
                 if (query != null)
                 {
+                    testList = dBContext.Testiranja.Where(x => x.SifraI == query.SifraI).ToList();
+                    if(testList != null)
+                    {
+                        foreach(var test in testList)
+                            dBContext.Testiranja.Remove(test);
+                    }
                     List<Cena> prices = dBContext.Cene.Where(x => x.SifraI == instrumentId).ToList();
                     foreach(var price in prices)
                     {
@@ -285,9 +292,9 @@ namespace Database.CRUD
                 }
                 return false;
             }
-            catch
+            catch(Exception e)
             {
-                return false;
+                throw new Exception(e.Message);
             }
         }
         #endregion

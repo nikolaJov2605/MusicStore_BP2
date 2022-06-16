@@ -95,7 +95,7 @@ namespace Database.CRUD
             List<Radnik> retList = new List<Radnik>();
             using (MusicStoreDBContext dBContext = new MusicStoreDBContext())
             {
-                retList = dBContext.Radnici.Where(x => x.Pozicija == "Prodavac").ToList();
+                retList = dBContext.Radnici.Where(x => x.Pozicija == "Prodavac" || x.Pozicija == "Full").ToList();
             }
             return retList;
         }
@@ -105,7 +105,7 @@ namespace Database.CRUD
             List<Radnik> retList = new List<Radnik>();
             using (MusicStoreDBContext dBContext = new MusicStoreDBContext())
             {
-                retList = dBContext.Radnici.Where(x => x.Pozicija == "Tehničar").ToList();
+                retList = dBContext.Radnici.Where(x => x.Pozicija == "Tehničar" || x.Pozicija == "Full").ToList();
             }
             return retList;
         }

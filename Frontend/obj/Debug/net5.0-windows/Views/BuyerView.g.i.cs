@@ -93,7 +93,7 @@ namespace Frontend.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Frontend;V1.0.0.0;component/views/buyerview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Frontend;component/views/buyerview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\BuyerView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

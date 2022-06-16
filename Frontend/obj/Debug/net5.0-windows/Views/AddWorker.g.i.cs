@@ -173,7 +173,7 @@ namespace Frontend {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Frontend;V1.0.0.0;component/views/addworker.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Frontend;component/views/addworker.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\AddWorker.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

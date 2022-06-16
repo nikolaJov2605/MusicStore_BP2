@@ -136,5 +136,17 @@ namespace Frontend
             AddPurchase addPurchaseWindow = AddPurchase.AddPurchaseInstance;
             addPurchaseWindow.Show();
         }
+
+        private void btnTest_Click(object sender, RoutedEventArgs e)
+        {
+            TestView testViewWindow = TestView.TestViewInstance;
+            testViewWindow.Show();
+        }
+
+        private void btnNewTest_Click(object sender, RoutedEventArgs e)
+        {
+            AddTest addTestWindow = AddTest.AddTestInstance;
+            addTestWindow.Show();
+        }
     }
 }

@@ -13,6 +13,9 @@
     <Compile Update="Views\AddPurchase.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\AddTest.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\AddWorker.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -26,6 +29,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\PurchaseView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\TestView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\UpdateBuyer.xaml.cs">
@@ -51,6 +57,9 @@
     <Page Update="Views\AddPurchase.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\AddTest.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\AddWorker.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -67,6 +76,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\PurchaseView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\TestView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\UpdateBuyer.xaml">

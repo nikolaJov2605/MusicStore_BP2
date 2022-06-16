@@ -19,37 +19,37 @@ using System.Windows.Shapes;
 namespace Frontend.Views
 {
     /// <summary>
-    /// Interaction logic for AddPurchase.xaml
+    /// Interaction logic for AddTest.xaml
     /// </summary>
-    public partial class AddPurchase : Window
+    public partial class AddTest : Window
     {
-        private static AddPurchase addPurchaseInstance;
+        private static AddTest addTestInstance;
         private IInstrument instrumentService;
         private IBuyer buyerService;
         private IWorker workerService;
-        private IPurchase purchaseService;
+        private ITest testService;
 
 
-        public AddPurchase()
+        public AddTest()
         {
             InitializeComponent();
             instrumentService = new InstrumentService();
             buyerService = new BuyerService();
             workerService = new WorkerService();
-            purchaseService = new PurchaseService();
+            testService = new TestService();
 
             dgInstruments.ItemsSource = instrumentService.GetAllInstruments();
             dgBuyers.ItemsSource = buyerService.GetAllBuyers();
-            dgWorkers.ItemsSource = workerService.GetSellers();
+            dgWorkers.ItemsSource = workerService.GetTechs();
         }
 
-        public static AddPurchase AddPurchaseInstance
+        public static AddTest AddTestInstance
         {
             get
             {
-                if (addPurchaseInstance == null)
-                    addPurchaseInstance = new AddPurchase();
-                return addPurchaseInstance;
+                if (addTestInstance == null)
+                    addTestInstance = new AddTest();
+                return addTestInstance;
             }
         }
 
@@ -66,7 +66,7 @@ namespace Frontend.Views
                 return;
             }
             KupacModel model = new KupacModel(tbJmbg.Text, tbBuyerName.Text, tbBuyerLastName.Text);
-            
+
             InstrumentModel instrumentModel = instrumentService.GetInstrument((InstrumentModel)dgInstruments.SelectedItem);
             RadnikModel radnikModel = workerService.GetWorker((RadnikModel)dgWorkers.SelectedItem);
 
@@ -77,23 +77,13 @@ namespace Frontend.Views
                 kupacModel = buyerService.GetBuyer(model);
             }
 
+            TestModel testModel = new TestModel(instrumentModel.Id, instrumentModel.Naziv, 
+                radnikModel.Id, radnikModel.Ime, radnikModel.Prezime, kupacModel.Id, kupacModel.Ime, kupacModel.Prezime, kupacModel.Jmbg);
 
-
-            PurchaseModel purchaseModel = new PurchaseModel(kupacModel.Id, kupacModel.Ime, kupacModel.Prezime, kupacModel.Jmbg, radnikModel.Id, radnikModel.Ime, radnikModel.Prezime,
-                instrumentModel.Id, instrumentModel.Naziv, instrumentModel.Cena);
-
-            purchaseService.AddPurchase(purchaseModel);
-
-            MainWindow.MainWindowInstance.dgTable.ItemsSource = instrumentService.GetAllInstruments();
+            testService.AddTest(testModel);
 
             this.Close();
 
-
-        }
-
-        private void Window_Closed(object sender, EventArgs e)
-        {
-            addPurchaseInstance = null;
         }
 
         private void dgBuyers_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -108,6 +98,11 @@ namespace Frontend.Views
             tbBuyerName.Text = kupacModel.Ime;
             tbBuyerLastName.Text = kupacModel.Prezime;
             tbJmbg.Text = kupacModel.Jmbg;
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            addTestInstance = null;
         }
     }
 }

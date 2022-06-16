@@ -66,7 +66,7 @@ namespace Frontend.Views
         {
             if (dgWorkers.SelectedItem == null)
             {
-                MessageBox.Show("Izaberite radnika za brisanje!");
+                MessageBox.Show("Izaberite radnika za izmenu!");
                 return;
             }
 

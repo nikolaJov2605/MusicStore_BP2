@@ -17,6 +17,12 @@ namespace Database.CRUD
 
             try
             {
+                var instrumentQuery = dBContext.Instrumenti.FirstOrDefault(x => x.SifraI == testiranje.SifraI);
+                var buyerQuery = dBContext.Kupci.FirstOrDefault(x => x.IdK == testiranje.IdK);
+                var workerQuery = dBContext.Radnici.FirstOrDefault(x => x.IdR == testiranje.IdR);
+                testiranje.IdKNavigation = buyerQuery;
+                testiranje.IdRNavigation = workerQuery;
+                testiranje.SifraINavigation = instrumentQuery;
                 dBContext.Testiranja.Add(testiranje);
                 dBContext.SaveChanges();
             }
@@ -64,6 +70,24 @@ namespace Database.CRUD
                 return null;
             }
             return null;
+        }
+
+        public List<Testiranje> GetAllTests()
+        {
+            List<Testiranje> retList = new List<Testiranje>();
+            using (MusicStoreDBContext dBContext = new MusicStoreDBContext())
+            {
+                retList = dBContext.Testiranja.ToList();
+
+                foreach (var item in retList)
+                {
+                    var queryKupac = dBContext.Kupci.Where(x => x.IdK == item.IdK);
+                    var queryInstrument = dBContext.Instrumenti.Where(x => x.SifraI == item.SifraI);
+                    var queryRadnik = dBContext.Radnici.Where(x => x.IdR == item.IdR);
+                }
+
+            }
+            return retList;
         }
 
         #endregion
